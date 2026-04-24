@@ -8,6 +8,15 @@ public class WalkEnemy : Enemy
     [SerializeField] float speed;
     // Obszar wykrywania chrz¹szcza
     [SerializeField] float detectionDistance;
+    [SerializeField] private float knockbackForce = 10f;
+
+    public void ApplyKnockback(Transform player)
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+
+        Rigidbody rb = player.GetComponent<Rigidbody>();
+        rb.AddForce(direction * knockbackForce, ForceMode.Impulse);
+    }
     public override void Move()
     {
         // Je¿eli odleg³oœæ miêdzy wrogiem a graczem jest mniejsza ni¿ promieñ wykrywania chrz¹szcza
@@ -38,8 +47,9 @@ public class WalkEnemy : Enemy
             // Resetowanie timera
             timer = 0;
             // Pobranie skryptu gracza i wywo³anie funkcji odejmowania zdrowia
-            player.GetComponent<PlayerController>().ChangeHealth(damage);
+            //player.GetComponent<PlayerController>().ChangeHealth(damage);
             // W³¹czenie animacji ataku
+            ApplyKnockback(player.transform);
             anim.SetBool("Attack", true);
         }
         // W przeciwnym razie...

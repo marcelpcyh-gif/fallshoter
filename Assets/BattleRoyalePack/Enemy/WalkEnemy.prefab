@@ -1265,6 +1265,7 @@ GameObject:
   - component: {fileID: 294832358824457828}
   - component: {fileID: 294832358824457827}
   - component: {fileID: 2088295043535521327}
+  - component: {fileID: -890834023817587722}
   m_Layer: 0
   m_Name: WalkEnemy
   m_TagString: enemy
@@ -1392,6 +1393,20 @@ MonoBehaviour:
   cooldown: 2
   speed: 5
   detectionDistance: 100
+  knockbackForce: 10
+--- !u!114 &-890834023817587722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293709167230437325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bb7d160d136c34d80cbca976ea3237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallPoint: -20
 --- !u!1 &293722636375766651
 GameObject:
   m_ObjectHideFlags: 0
